@@ -1,0 +1,8 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: "movie"
+  data:
+    mongodb:
+      uri: "mongodb://localhost:27017/movies"
