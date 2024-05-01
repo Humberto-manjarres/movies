@@ -9,43 +9,34 @@ import org.movies.domain.model.pelicula.Pelicula;
 import org.movies.domain.model.pelicula.gateways.PeliculaRepository;
 import reactor.core.publisher.Flux;
 
-import java.util.Map;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 public class PeliculaFilterUseCase {
 
     private final PeliculaRepository peliculaRepository;
 
-    public Flux<Pelicula> filtroPeliculas(Map<String, Object> filtros){
-        Criteria criteria = construirCriterioDesdeFiltros(filtros);
-        /*return peliculaRepository.obtenerPeliculas()
-                .filter(pelicula -> criteria.cumpleCriterio(pelicula));*/
+    public Flux<Pelicula> filtroPeliculas(Pelicula peliculaFiltro){
+        Criteria criteria = construirCriterioDesdeFiltros(peliculaFiltro);
         return peliculaRepository.obtenerPeliculas()
-                .filter(pelicula -> pelicula.getPuntuacion() == (int) filtros.get("puntuacion")
-                        && pelicula.getDuracion() == (double) filtros.get("duracion")
-                && pelicula.getIdCategoria().equals(filtros.get("idCategoria")));
+                .filter(pelicula -> criteria.cumpleCriterio(pelicula));
     }
 
-    private Criteria construirCriterioDesdeFiltros(Map<String, Object> filtros) {
+    private Criteria construirCriterioDesdeFiltros(Pelicula peliculaFiltro) {
         // Construye los criterios de filtrado dinámicamente basados en los filtros proporcionados
         Criteria criteria = null;
 
-        //filtro por puntuación
-        if (filtros.containsKey("puntuacion")) {
-            int puntuacion = (int) filtros.get("puntuacion");
-            criteria = new CriterioPuntuacion(puntuacion);
+        if (peliculaFiltro.getPuntuacion() > 0){
+            criteria = new CriterioPuntuacion(peliculaFiltro.getPuntuacion());
         }
 
-        // Construye el criterio de filtrado por duración si está presente en los filtros
-        if (filtros.containsKey("duracion")) {
-            double duracion = (double) filtros.get("duracion");
-            Criteria criterioDuracion = new CriterioDuracion(duracion);
+        if (peliculaFiltro.getDuracion()> 0.0){
+            Criteria criterioDuracion = new CriterioDuracion(peliculaFiltro.getDuracion());
             criteria = (criteria != null) ? criteria.and(criterioDuracion) : criterioDuracion;
         }
 
-        // Construye el criterio de filtrado por idCategoria si está presente en los filtros
-        if (filtros.containsKey("idCategoria")) {
-            Criteria criterioCategoria = new CriterioCategoria((String) filtros.get("idCategoria"));
+        if (Objects.nonNull(peliculaFiltro.getIdCategoria())){
+            Criteria criterioCategoria = new CriterioCategoria(peliculaFiltro.getIdCategoria());
             criteria = (criteria != null) ? criteria.and(criterioCategoria) : criterioCategoria;
         }
 

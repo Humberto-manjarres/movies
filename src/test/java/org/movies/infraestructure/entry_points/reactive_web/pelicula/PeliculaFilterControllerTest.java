@@ -1,27 +1,18 @@
 package org.movies.infraestructure.entry_points.reactive_web.pelicula;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.movies.domain.model.pelicula.Pelicula;
 import org.movies.domain.usecase.pelicula.PeliculaFilterUseCase;
+import org.movies.infraestructure.entry_points.reactive_web.pelicula.dto.PeliculaDTO;
+import org.movies.infraestructure.entry_points.reactive_web.pelicula.transformers.PeliculaTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyMap;
 
 @SpringBootTest
 @AutoConfigureWebTestClient
@@ -33,41 +24,47 @@ class PeliculaFilterControllerTest {
     @MockBean
     private PeliculaFilterUseCase peliculaFilterUseCase;
 
+    @MockBean
+    private PeliculaTransformer transformer;
+
+    //private Pelicula peliculaFiltro;
+
     private Pelicula pelicula1;
-    private Pelicula pelicula2;
-    List<Pelicula> listaPeliculas = new ArrayList<>();
+
+    private PeliculaDTO peliculaFiltro;
+
     @BeforeEach
     void setUp() {
+        peliculaFiltro = new PeliculaDTO();
+        peliculaFiltro.setPuntuacion(5);
+        peliculaFiltro.setDuracion(50.0);
+        peliculaFiltro.setIdCategoria("123ac");
+
         pelicula1 = new Pelicula();
+        pelicula1.setPuntuacion(5);
         pelicula1.setTitulo("ABC");
+        pelicula1.setDuracion(50.0);
+        pelicula1.setIdCategoria("123ac");
 
-        pelicula2 = new Pelicula();
-        pelicula2.setTitulo("CDE");
-
-        listaPeliculas.add(pelicula1);
-        listaPeliculas.add(pelicula2);
     }
 
     @Test
     public void filtroPeliculasTest(){
+        Mockito.when(transformer.peliculaDTOAPelicula(peliculaFiltro)).thenReturn(pelicula1);
+        Mockito.when(peliculaFilterUseCase.filtroPeliculas(pelicula1)).thenReturn(Flux.just(pelicula1));
+        Mockito.when(transformer.peliculaAPeliculaDTO(pelicula1)).thenReturn(peliculaFiltro);
 
-        Map<String, Object> filtros = new HashMap<>();
-        // Convertir el mapa de filtros a JSON
-        ObjectMapper objectMapper = new ObjectMapper();
-        String filtrosJson = null;
-        try {
-            filtrosJson = objectMapper.writeValueAsString(filtros);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-
-        Mockito.when(peliculaFilterUseCase.filtroPeliculas(any())).thenReturn(Flux.fromIterable(listaPeliculas));
-
-        webTestClient.get()
+        webTestClient.post()
                 .uri("/api/filtro-peliculas")
+                .bodyValue(peliculaFiltro)
                 .exchange()
                 .expectStatus().isOk()
-                .expectBodyList(Pelicula.class)
-                .hasSize(2);
+                .expectBodyList(PeliculaDTO.class)
+                .hasSize(1)
+                .contains(peliculaFiltro);
+
+        // Verifica si el método filtroPeliculas fue llamado con el objeto peliculaFiltro
+        Mockito.verify(peliculaFilterUseCase).filtroPeliculas(pelicula1);
+
     }
 }

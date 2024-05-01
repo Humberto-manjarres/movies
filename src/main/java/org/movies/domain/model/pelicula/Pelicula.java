@@ -56,4 +56,17 @@ public class Pelicula {
     public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
     }
+
+    @Override
+    public String
+    toString() {
+        return "Pelicula{" +
+                "id='" + id + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", duracion=" + duracion +
+                ", puntuacion=" + puntuacion +
+                ", idCategoria='" + idCategoria + '\'' +
+                '}';
+    }
 }
