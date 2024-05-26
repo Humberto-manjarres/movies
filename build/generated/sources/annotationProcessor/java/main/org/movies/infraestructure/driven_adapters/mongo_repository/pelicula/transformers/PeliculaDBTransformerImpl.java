@@ -6,7 +6,7 @@ import org.movies.infraestructure.driven_adapters.mongo_repository.pelicula.enti
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-28T12:03:11-0500",
+    date = "2024-05-26T10:47:07-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.4.jar, environment: Java 11.0.11 (Oracle Corporation)"
 )
 public class PeliculaDBTransformerImpl implements PeliculaDBTransformer {

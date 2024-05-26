@@ -3,6 +3,7 @@ package org.movies.infraestructure.entry_points.reactive_web.categoria;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.movies.config.MongoTestConfig;
 import org.movies.domain.model.categoria.Categoria;
 import org.movies.domain.usecase.categoria.CategoriaUseCase;
 import org.movies.infraestructure.entry_points.reactive_web.categoria.dto.CategoriaDTO;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 
@@ -20,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @AutoConfigureWebTestClient
+@Import(MongoTestConfig.class)
 class CrearCategoriaControllerTest {
 
     @Autowired

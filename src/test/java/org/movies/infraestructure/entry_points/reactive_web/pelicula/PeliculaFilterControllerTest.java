@@ -3,6 +3,7 @@ package org.movies.infraestructure.entry_points.reactive_web.pelicula;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.movies.config.MongoTestConfig;
 import org.movies.domain.model.pelicula.Pelicula;
 import org.movies.domain.usecase.pelicula.PeliculaFilterUseCase;
 import org.movies.infraestructure.entry_points.reactive_web.pelicula.dto.PeliculaDTO;
@@ -11,11 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 
 @SpringBootTest
 @AutoConfigureWebTestClient
+@Import(MongoTestConfig.class)
 class PeliculaFilterControllerTest {
 
     @Autowired

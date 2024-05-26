@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.429s</div>
+<div class="counter">0.048s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,117 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard output</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="filtroPeliculasTest()"></a>
-<h3 class="failures">filtroPeliculasTest()</h3>
-<span class="code">
-<pre>java.lang.AssertionError: Status expected:&lt;200 OK&gt; but was:&lt;415 UNSUPPORTED_MEDIA_TYPE&gt;
-	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
-	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
-	at org.springframework.test.web.reactive.server.StatusAssertions.lambda$assertStatusAndReturn$4(StatusAssertions.java:225)
-	at org.springframework.test.web.reactive.server.ExchangeResult.assertWithDiagnostics(ExchangeResult.java:231)
-	at org.springframework.test.web.reactive.server.StatusAssertions.assertStatusAndReturn(StatusAssertions.java:225)
-	at org.springframework.test.web.reactive.server.StatusAssertions.isOk(StatusAssertions.java:67)
-	at org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest.filtroPeliculasTest(PeliculaFilterControllerTest.java:69)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
-	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -182,33 +78,21 @@
 </tr>
 </thead>
 <tr>
-<td class="failures">filtroPeliculasTest()</td>
-<td class="failures">0.429s</td>
-<td class="failures">failed</td>
+<td class="success">filtroPeliculasTest()</td>
+<td class="success">0.048s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>18:38:57.252 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-18:38:57.262 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-18:38:57.297 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-18:38:57.307 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest], using SpringBootContextLoader
-18:38:57.311 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest]: class path resource [org/movies/infraestructure/entry_points/reactive_web/pelicula/PeliculaFilterControllerTest-context.xml] does not exist
-18:38:57.312 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest]: class path resource [org/movies/infraestructure/entry_points/reactive_web/pelicula/PeliculaFilterControllerTestContext.groovy] does not exist
-18:38:57.312 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-18:38:57.313 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest]: PeliculaFilterControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-18:38:57.384 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest]
-18:38:57.464 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\Humberto Manjarres\Documents\workspace-spring-tool-suite-4-curso-Udemy\movies\build\classes\java\main\org\movies\MainApplication.class]
-18:38:57.464 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration org.movies.MainApplication for test class org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest
-18:38:57.566 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest]: using defaults.
-18:38:57.566 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-18:38:57.573 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [javax/servlet/ServletContext]
-18:38:57.580 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5a12c728, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@79ab3a71, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6e5bfdfc, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3d829787, org.springframework.test.context.support.DirtiesContextTestExecutionListener@71652c98, org.springframework.test.context.transaction.TransactionalTestExecutionListener@51bde877, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@60b85ba1, org.springframework.test.context.event.EventPublishingTestExecutionListener@492fc69e, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@117632cf, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2fb68ec6, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@d71adc2, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3add81c4, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1a1d3c1a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1c65121]
-18:38:57.583 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@6c44052e testClass = PeliculaFilterControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@5c371e13 testClass = PeliculaFilterControllerTest, locations = '{}', classes = '{class org.movies.MainApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1fdfafd2, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@ec54a5c9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@666b83a4, [ImportsContextCustomizer@530a8454 key = [org.springframework.boot.autoconfigure.security.oauth2.client.reactive.ReactiveOAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.reactive.ReactiveOAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6bb75258, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2783717b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@5ac36205, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@72445aba, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@56276db8, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@19b89d4], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
-18:38:57.624 [Test worker] DEBUG org.springframework.boot.ApplicationReactiveWebEnvironment - Activating profiles []
-18:38:57.627 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
+<pre>2024-05-26 10:47:36.969  INFO 5172 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest], using SpringBootContextLoader
+2024-05-26 10:47:36.971  INFO 5172 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-05-26 10:47:36.971  INFO 5172 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest]: PeliculaFilterControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-26 10:47:36.973  INFO 5172 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.movies.MainApplication for test class org.movies.infraestructure.entry_points.reactive_web.pelicula.PeliculaFilterControllerTest
+2024-05-26 10:47:36.976  INFO 5172 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-05-26 10:47:36.977  INFO 5172 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@25d9298e, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6ab826bb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@219db855, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3702d0ed, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5b7b0ada, org.springframework.test.context.transaction.TransactionalTestExecutionListener@705d72f0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3c4e23be, org.springframework.test.context.event.EventPublishingTestExecutionListener@1d6a0962, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1ec4fdcf, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@515d615, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@488b46da, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5e777b0, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3c74d846, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@17fa14a3]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -218,28 +102,34 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.0)
 
-2024-04-27 18:38:57.938  INFO 24484 --- [    Test worker] o.m.i.e.r.p.PeliculaFilterControllerTest : Starting PeliculaFilterControllerTest using Java 11.0.11 on LAPTOP-M4E6T1FE with PID 24484 (started by Humberto Manjarres in C:\Users\Humberto Manjarres\Documents\workspace-spring-tool-suite-4-curso-Udemy\movies)
-2024-04-27 18:38:57.939  INFO 24484 --- [    Test worker] o.m.i.e.r.p.PeliculaFilterControllerTest : No active profile set, falling back to default profiles: default
-2024-04-27 18:38:58.563  INFO 24484 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
-2024-04-27 18:38:58.761  INFO 24484 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 193 ms. Found 2 Reactive MongoDB repository interfaces.
-2024-04-27 18:38:59.636  INFO 24484 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2024-04-27 18:39:00.905  INFO 24484 --- [    Test worker] o.m.i.e.r.p.PeliculaFilterControllerTest : Started PeliculaFilterControllerTest in 3.275 seconds (JVM running for 4.942)
-2024-04-27 18:39:01.243  INFO 24484 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:344}] to localhost:27017
-2024-04-27 18:39:01.243  INFO 24484 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:343}] to localhost:27017
-2024-04-27 18:39:01.244  INFO 24484 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=129477200}
-2024-04-27 18:39:01.329 ERROR 24484 --- [    Test worker] o.s.t.w.reactive.server.ExchangeResult   : Request details for assertion failure:
+2024-05-26 10:47:37.008  INFO 5172 --- [    Test worker] o.m.i.e.r.p.PeliculaFilterControllerTest : Starting PeliculaFilterControllerTest using Java 11.0.11 on LAPTOP-M4E6T1FE with PID 5172 (started by Humberto Manjarres in C:\Users\Humberto Manjarres\Documents\workspace-spring-tool-suite-4-curso-Udemy\movies)
+2024-05-26 10:47:37.008  INFO 5172 --- [    Test worker] o.m.i.e.r.p.PeliculaFilterControllerTest : No active profile set, falling back to default profiles: default
+2024-05-26 10:47:37.193  INFO 5172 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-05-26 10:47:37.233  INFO 5172 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 2 Reactive MongoDB repository interfaces.
+2024-05-26 10:47:37.332  INFO 5172 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2024-05-26 10:47:37.338  INFO 5172 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:17, serverValue:131}] to localhost:27017
+2024-05-26 10:47:37.338  INFO 5172 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2992300}
+2024-05-26 10:47:37.341  INFO 5172 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:18, serverValue:132}] to localhost:27017
+2024-05-26 10:47:37.901  INFO 5172 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[${mongodb}:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2024-05-26 10:47:37.907  INFO 5172 --- [{mongodb}:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server ${mongodb}:27017
 
-&gt; GET /api/filtro-peliculas
-&gt; WebTestClient-Request-Id: [1]
+com.mongodb.MongoSocketException: ${mongodb}
+	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:211) ~[mongodb-driver-core-4.4.0.jar:na]
+	at com.mongodb.connection.netty.NettyStream.openAsync(NettyStream.java:163) ~[mongodb-driver-core-4.4.0.jar:na]
+	at com.mongodb.connection.netty.NettyStream.open(NettyStream.java:154) ~[mongodb-driver-core-4.4.0.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:180) ~[mongodb-driver-core-4.4.0.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) ~[mongodb-driver-core-4.4.0.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:152) ~[mongodb-driver-core-4.4.0.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.net.UnknownHostException: ${mongodb}
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:797) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1505) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1364) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1298) ~[na:na]
+	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:203) ~[mongodb-driver-core-4.4.0.jar:na]
+	... 6 common frames omitted
 
-No content
-
-&lt; 415 UNSUPPORTED_MEDIA_TYPE Unsupported Media Type
-&lt; Content-Type: [application/json]
-&lt; Content-Length: [145]
-
-{&quot;timestamp&quot;:&quot;2024-04-27T23:39:01.230+00:00&quot;,&quot;path&quot;:&quot;/api/filtro-peliculas&quot;,&quot;status&quot;:415,&quot;error&quot;:&quot;Unsupported Media Type&quot;,&quot;requestId&quot;:&quot;2532c6dc&quot;}
-
+2024-05-26 10:47:38.106  INFO 5172 --- [    Test worker] o.m.i.e.r.p.PeliculaFilterControllerTest : Started PeliculaFilterControllerTest in 1.125 seconds (JVM running for 23.371)
 </pre>
 </span>
 </div>
@@ -251,7 +141,7 @@ No content
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 27 abr. 2024 6:39:03 p. m.</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 26 may. 2024 10:47:49 a. m.</p>
 </div>
 </div>
 </body>
