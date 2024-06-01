@@ -6,7 +6,7 @@ import org.movies.infraestructure.driven_adapters.mongo_repository.categoria.ent
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-26T10:47:08-0500",
+    date = "2024-06-01T12:35:57-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.4.jar, environment: Java 11.0.11 (Oracle Corporation)"
 )
 public class CategoriaDBTransformerImpl implements CategoriaDBTransformer {

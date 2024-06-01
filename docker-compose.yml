@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  db:
+    container_name: movies
+    image: mongo:6.0
+    volumes:
+      - movies-vol:/data/db
+    ports:
+      - 27017:27017  # no exponemos el puerto de nuestra bd, si los unicos que utilizaran nuestra bd son los contenedores que están en estre docker-compose
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: salvador
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    command: ['--auth'] # hace obligatorio utilizar contraseñas para ingresar al contendor.
+
+  mongo-express:
+    depends_on:
+      - db
+    image: mongo-express:1.0.0-alpha.4
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: salvador
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 123456
+      ME_CONFIG_MONGODB_SERVER: movies
+    ports:
+      - 8081:8081
+    restart: always
+
+  movies-app:
+    depends_on:
+      - db
+      - mongo-express
+    image: humbertoto22/movies:latest
+    ports:
+      - 8080:8020      
+    environment:
+      MONGODB: salvador:123456@movies:27017
+      DB_NAME_MONGO: movies
+      restart: always
+
+volumes:
+  movies-vol:
+    external: false    

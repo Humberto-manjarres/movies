@@ -1,12 +1,13 @@
-server:
-  port: 8020
-spring:
-  application:
-    name: "movie"
-  data:
-    mongodb:
+#server:
+#  port: 8020
+#spring:
+#  application:
+#    name: "movie"
+#  data:
+#    mongodb:
       #uri: ${MONGODB}/${DB_NAME_MONGO}
-      uri: "mongodb://${MONGODB}:27017/${DB_NAME_MONGO}"
+      #uri: "mongodb://${MONGODB}:27017/${DB_NAME_MONGO}"
+      #uri: "mongodb://${MONGODB}/${DB_NAME_MONGO}" --------------->
       #uri: "mongodb://localhost:27017/movies"
       #uri: "mongodb://${MONGODB:localhost}:27017/${DB_NAME_MONGO:movies}" // se agregan variables predeterminadas por si las environment asignadas tienen problemas
     #uri: "mongodb://localhost:27017/movies" #VALOR DE LA VARIABLES DE ENTORNO EN LOCAL -> MONGODB = mongodb://localhost:27017/ -> DB_NAME_MONGO = movies
@@ -15,3 +16,15 @@ spring:
 #  level:
 #    org.springframework: DEBUG
 #    com.yourpackage: DEBUG
+
+server:
+  port: ${PORT:8020}
+
+spring:
+  application:
+    name: "movie"
+  data:
+    mongodb:
+      uri: "mongodb://${MONGODB}"
+      database: ${DB_NAME_MONGO} #"movies"
+
