@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.movies.domain.model.commons.EventsGateway;
 import org.movies.domain.model.pelicula.Pelicula;
 import org.movies.domain.model.pelicula.gateways.GenerarComunicadoCartelera;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -13,12 +12,6 @@ import reactor.core.publisher.Mono;
 @Component
 @AllArgsConstructor
 public class PeliculaCarteleraRepositoryAdapter implements GenerarComunicadoCartelera {
-
-    /*@Value("${destinations.queues.cartelera.exchange}")
-    private String queueName;
-
-    @Value("${destinations.queues.cartelera.routing-key}")
-    private String queueKey;*/
 
     private final EventsGateway eventsGateway;
 
