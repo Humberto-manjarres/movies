@@ -1,6 +1,8 @@
 package org.movies.application;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.movies.domain.model.categoria.gateways.CategoriaRepository;
+import org.movies.domain.model.pelicula.gateways.GenerarComunicadoCartelera;
 import org.movies.domain.model.pelicula.gateways.PeliculaRepository;
 import org.movies.domain.usecase.categoria.CategoriaUseCase;
 import org.movies.domain.usecase.pelicula.ConsultarPorTituloPeliculaUseCase;
@@ -19,8 +21,8 @@ public class ConfigUseCase {
     }
 
     @Bean
-    public CrearPeliculaUseCase peliculaUseCase(PeliculaRepository peliculaRepository, CategoriaRepository categoriaRepository){
-        return new CrearPeliculaUseCase(peliculaRepository,categoriaRepository);
+    public CrearPeliculaUseCase peliculaUseCase(PeliculaRepository peliculaRepository, CategoriaRepository categoriaRepository, GenerarComunicadoCartelera generarComunicadoCartelera){
+        return new CrearPeliculaUseCase(peliculaRepository,categoriaRepository,generarComunicadoCartelera);
     }
 
     @Bean
@@ -36,5 +38,10 @@ public class ConfigUseCase {
     @Bean
     public PeliculaFilterUseCase peliculaFilterUseCase(PeliculaRepository peliculaRepository){
         return new PeliculaFilterUseCase(peliculaRepository);
+    }
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
     }
 }

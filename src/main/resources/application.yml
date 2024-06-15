@@ -28,3 +28,16 @@ spring:
       uri: "mongodb://${MONGODB}"
       database: ${DB_NAME_MONGO} #"movies"
 
+#destinations:
+#  queues:
+#    cartelera:
+#      queue: movies.cartelera.pelicula.qe
+#      exchange: movies.cartelera.pelicula.ex
+#      routing-key: movies.cartelera.pelicula.rk
+
+msgbroker:
+  host: localhost
+  port: 5672
+  virtualHost: /
+  username: guest
+  password: guest

@@ -15,3 +15,4 @@ CONFIGURACIÓN:
 EJECUCIÓN:
 1. La aplicación estará disponible en: `http://localhost:8020`
 2. En el proyecto encontrarás las colecciones postman.
+3. variables de entorno: DB_NAME_MONGO=movies;MONGODB=localhost:27017

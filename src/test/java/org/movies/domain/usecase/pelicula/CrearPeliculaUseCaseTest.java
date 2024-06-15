@@ -10,11 +10,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.movies.domain.model.categoria.Categoria;
 import org.movies.domain.model.categoria.gateways.CategoriaRepository;
 import org.movies.domain.model.pelicula.Pelicula;
+import org.movies.domain.model.pelicula.gateways.GenerarComunicadoCartelera;
 import org.movies.domain.model.pelicula.gateways.PeliculaRepository;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 
@@ -26,6 +26,9 @@ class CrearPeliculaUseCaseTest {
 
     @Mock
     private CategoriaRepository categoriaRepository;
+
+    @Mock
+    private GenerarComunicadoCartelera generarComunicadoCartelera;
 
     @InjectMocks
     private CrearPeliculaUseCase crearPeliculaUseCase;
@@ -42,20 +45,39 @@ class CrearPeliculaUseCaseTest {
 
         pelicula = new Pelicula();
         pelicula.setTitulo("ABC");
-        pelicula.setIdCategoria("123");
+        pelicula.setIdCategoria(categoria.getId());
     }
 
     @Test
-    public void crearPeliculaTest(){
-        Mockito.when(categoriaRepository.consultarCategoriaPorId(anyString())).thenReturn(Mono.just(categoria));
-        //Mockito.when(peliculaRepository.guardarPelicula(pelicula)).thenReturn(Mono.just(pelicula));
+    public void crearPeliculaTestError(){
+        Mockito.when(categoriaRepository.consultarCategoriaPorId(anyString())).thenReturn(Mono.empty());
 
-        Mono<Pelicula> agregarpeliculaResponse = crearPeliculaUseCase.agregarpelicula(pelicula);
+        Mono<Pelicula> result = crearPeliculaUseCase.agregarpelicula(pelicula);
 
-        StepVerifier.create(agregarpeliculaResponse)
-                .consumeNextWith(pelicula1 -> {
-                assertEquals(pelicula.getTitulo(),pelicula1.getTitulo());
-        });
+        StepVerifier.create(result)
+                .expectErrorMessage("Categoria no existe!")
+                .verify();
 
     }
+
+    @Test
+    public void testAgregarPelicula_CategoriaExiste() {
+
+        Mockito.when(categoriaRepository.consultarCategoriaPorId("123")).thenReturn(Mono.just(categoria));
+        Mockito.when(peliculaRepository.guardarPelicula(any(Pelicula.class))).thenReturn(Mono.just(pelicula));
+        Mockito.when(generarComunicadoCartelera.publicarCartelera(any(Pelicula.class))).thenReturn(Mono.empty());
+
+        Mono<Pelicula> result = crearPeliculaUseCase.agregarpelicula(pelicula);
+
+        StepVerifier.create(result)
+                .expectNext(pelicula)
+                .verifyComplete();
+
+
+        // verificamos que los métodos se hayan llamado durante la ejecución
+        Mockito.verify(categoriaRepository).consultarCategoriaPorId("123");
+        Mockito.verify(peliculaRepository).guardarPelicula(pelicula);
+        Mockito.verify(generarComunicadoCartelera).publicarCartelera(pelicula);
+    }
+
 }
